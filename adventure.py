@@ -116,7 +116,7 @@ def intro():
     # Prompt the player if they are ready to start their journey
     time.sleep(5)
     play("audios/computer/intro/ready_to_escape_forest.mp3")
-    ready = input(Fore.CYAN + f"Are you ready to start your journey of escaping the forest, {Fore.YELLOW}{name}{Fore.CYAN}?{Style.RESET_ALL} {Fore.YELLOW}(yes/no)" + Style.RESET_ALL+":")
+    ready = input(Fore.CYAN + f"Are you ready to start your journey of escaping the forest, {Fore.YELLOW}{name}{Fore.CYAN}?{Style.RESET_ALL} {Fore.YELLOW}(yes/no)" + Style.RESET_ALL+": ")
     if ready.lower() == "yes":
         print(f"{Fore.YELLOW}Let the adventure begin!\n{Style.RESET_ALL}")
         time.sleep(3)
@@ -159,9 +159,11 @@ def level_1():
                "It seems impossible to cross the river without a boat.\n"
                "Perhaps it's best to go back and explore another path, " +  ".\n\n" + Style.RESET_ALL) # add name + for tha player name to be added.
             while True:
-                go_back = input(f"You must got back! {Fore.YELLOW}(walk/stay){Style.RESET_ALL}: ").lower()
+                go_back = input(f"You must go back! {Fore.YELLOW}(walk/stay){Style.RESET_ALL}: ").lower()
             
                 if go_back == "walk":
+                    play("audios/sound-effects/walking-through-leaves.mp3")
+                    time.sleep(2)
                     print_slow(Fore.YELLOW + "Walking back")
                     time.sleep(1)
                     print_slow(".")
@@ -210,6 +212,6 @@ def level_1():
 
 
 # Start intro and Level 1
-# name = intro()
+name = intro()
 # level_1(name) also add the name variable in the function if its needed for using
 level_1()
